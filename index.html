@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>花巻納豆レシピ | 大粒だからこそ広がる、新しい食べ方</title>
+<meta name="description" content="明治20年創業・大内商店の花巻納豆で作る、新しい納豆レシピ。イタリアンサラダ、梅そうめん、レーズン、オリーブオイル塩の4品をご紹介。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700;900&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --brown-dark: #2D1B0E;
+    --brown: #6B3A2A;
+    --brown-light: #8C5A3C;
+    --gold: #E8C99B;
+    --cream: #FFF8F0;
+    --bg: #FAFAF7;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--brown-dark);
+    background: var(--bg);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  .hero {
+    position: relative;
+    height: 85vh;
+    min-height: 500px;
+    max-height: 750px;
+    overflow: hidden;
+    background: var(--brown-dark);
+  }
+  .hero-img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(45,27,14,0.2) 0%, rgba(45,27,14,0.85) 100%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+    padding: 0 24px 48px;
+    color: #FFF;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 12px;
+  }
+  .hero-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(28px, 7vw, 48px);
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: 4px;
+    margin-bottom: 16px;
+  }
+  .hero-sub {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.8;
+    opacity: 0.8;
+    max-width: 420px;
+  }
+  .hero-scroll {
+    margin-top: 28px;
+    width: 1px;
+    height: 40px;
+    background: rgba(255,255,255,0.3);
+    position: relative;
+  }
+  .hero-scroll::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: -2px;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: scrollDot 2s ease-in-out infinite;
+  }
+  @keyframes scrollDot {
+    0%   { transform: translateY(-35px); opacity: 0; }
+    50%  { opacity: 1; }
+    100% { transform: translateY(0); opacity: 0; }
+  }
+  .section {
+    padding: 64px 20px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--brown-light);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(22px, 5vw, 32px);
+    font-weight: 900;
+    text-align: center;
+    letter-spacing: 3px;
+    color: var(--brown-dark);
+    margin-bottom: 12px;
+  }
+  .section-intro {
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+    line-height: 1.8;
+    max-width: 480px;
+    margin: 0 auto 40px;
+  }
+  .recipe-card {
+    background: #FFF;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 24px rgba(45,27,14,0.08);
+    transition: transform 0.3s ease;
+  }
+  .recipe-card:hover { transform: translateY(-4px); }
+  .recipe-card-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+  .recipe-card-body { padding: 28px 24px 32px; }
+  .recipe-card-number {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--brown-light);
+    border: 1px solid var(--gold);
+    padding: 2px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .recipe-card-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: var(--brown-dark);
+    margin-bottom: 8px;
+  }
+  .recipe-card-desc {
+    font-size: 14px;
+    color: #888;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  .recipe-card-time {
+    font-size: 12px;
+    color: var(--brown-light);
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .recipe-steps {
+    list-style: none;
+    counter-reset: step;
+    border-top: 1px solid #F0EBE5;
+    padding-top: 20px;
+  }
+  .recipe-steps li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 36px;
+    margin-bottom: 14px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #555;
+  }
+  .recipe-steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 1px;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--cream);
+    color: var(--brown-light);
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--gold);
+  }
+  .recipe-ingredients {
+    background: var(--cream);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+  }
+  .recipe-ingredients h4 {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--brown-light);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .recipe-ingredients ul { list-style: none; }
+  .recipe-ingredients li {
+    font-size: 13px;
+    color: #666;
+    padding: 4px 0;
+    border-bottom: 1px dotted #E8DDD0;
+    display: flex;
+    justify-content: space-between;
+  }
+  .recipe-ingredients li:last-child { border-bottom: none; }
+  .recipe-ingredients .amount {
+    color: var(--brown);
+    font-weight: 500;
+    flex-shrink: 0;
+    margin-left: 12px;
+  }
+  .point-banner {
+    background: var(--brown-dark);
+    color: #FFF;
+    text-align: center;
+    padding: 48px 24px;
+  }
+  .point-banner .pb-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+  }
+  .point-banner .pb-sub {
+    font-size: 13px;
+    opacity: 0.7;
+    line-height: 1.8;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .brand-section {
+    background: var(--cream);
+    padding: 56px 24px;
+    text-align: center;
+  }
+  .brand-section .brand-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    color: var(--brown-dark);
+    margin-bottom: 16px;
+  }
+  .brand-section .brand-desc {
+    font-size: 13px;
+    color: #888;
+    line-height: 2;
+    max-width: 420px;
+    margin: 0 auto 24px;
+  }
+  .brand-badges {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .brand-badge {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: 1px solid var(--gold);
+    color: var(--brown-light);
+    padding: 6px 16px;
+    border-radius: 20px;
+    background: #FFF;
+  }
+  .footer {
+    background: var(--brown-dark);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+  .footer strong {
+    display: block;
+    color: rgba(255,255,255,0.7);
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <img class="hero-img" src="img_italian_salad.png" alt="花巻納豆イタリアンサラダ">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Hanamaki Natto ── Recipe</div>
+    <h1 class="hero-title">大粒だからこそ<br>広がる、<br>新しい食べ方。</h1>
+    <p class="hero-sub">
+      明治20年創業。花巻の老舗が提案する、<br>
+      納豆の新しい楽しみ方を4品ご紹介します。
+    </p>
+    <div class="hero-scroll"></div>
+  </div>
+</section>
+
+<div class="section" id="recipes">
+  <div class="section-label">Recipes</div>
+  <h2 class="section-title">花巻納豆の<br>新しいレシピ</h2>
+  <p class="section-intro">
+    ご飯にかけるだけではもったいない。<br>
+    大粒の花巻納豆だからこそ映える、<br>
+    4つの新しい食べ方をご提案します。
+  </p>
+
+  <div class="recipe-card fade-up">
+    <img class="recipe-card-img" src="img_italian_salad.png" alt="納豆イタリアンサラダ">
+    <div class="recipe-card-body">
+      <span class="recipe-card-number">RECIPE 01</span>
+      <h3 class="recipe-card-name">納豆イタリアンサラダ</h3>
+      <p class="recipe-card-desc">
+        トマト、モッツァレラ、バジルと一緒に。<br>
+        オリーブオイルとバルサミコで和えるだけ。<br>
+        大粒納豆がチーズのように存在感を出します。
+      </p>
+      <div class="recipe-card-time">調理時間：約5分</div>
+      <div class="recipe-ingredients">
+        <h4>材料（2人分）</h4>
+        <ul>
+          <li><span>花巻納豆（大粒）</span><span class="amount">1パック</span></li>
+          <li><span>ミニトマト</span><span class="amount">6個</span></li>
+          <li><span>モッツァレラチーズ</span><span class="amount">50g</span></li>
+          <li><span>バジルの葉</span><span class="amount">4〜5枚</span></li>
+          <li><span>オリーブオイル</span><span class="amount">大さじ1</span></li>
+          <li><span>バルサミコ酢</span><span class="amount">小さじ1</span></li>
+          <li><span>塩・黒こしょう</span><span class="amount">適量</span></li>
+        </ul>
+      </div>
+      <ol class="recipe-steps">
+        <li>ミニトマトは半分に、モッツァレラは一口大にちぎる</li>
+        <li>納豆は付属のタレを入れずに軽くほぐす</li>
+        <li>すべてをボウルに入れ、オリーブオイル・バルサミコ酢で和える</li>
+        <li>塩・黒こしょうで味を調え、バジルを散らして完成</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="recipe-card fade-up">
+    <img class="recipe-card-img" src="img_ume_somen.png" alt="梅納豆の冷やしそうめん">
+    <div class="recipe-card-body">
+      <span class="recipe-card-number">RECIPE 02</span>
+      <h3 class="recipe-card-name">梅納豆の冷やしそうめん</h3>
+      <p class="recipe-card-desc">
+        さっぱり梅肉と大粒納豆のコンビネーション。<br>
+        暑い日のランチにぴったりの一品です。<br>
+        そうめんに絡む納豆の食感がクセになります。
+      </p>
+      <div class="recipe-card-time">調理時間：約10分</div>
+      <div class="recipe-ingredients">
+        <h4>材料（2人分）</h4>
+        <ul>
+          <li><span>花巻納豆（大粒）</span><span class="amount">1パック</span></li>
+          <li><span>そうめん</span><span class="amount">2束</span></li>
+          <li><span>梅干し</span><span class="amount">2個</span></li>
+          <li><span>大葉</span><span class="amount">4枚</span></li>
+          <li><span>めんつゆ（2倍濃縮）</span><span class="amount">100ml</span></li>
+          <li><span>水</span><span class="amount">100ml</span></li>
+          <li><span>白ごま</span><span class="amount">適量</span></li>
+        </ul>
+      </div>
+      <ol class="recipe-steps">
+        <li>そうめんを茹で、氷水でしっかり冷やす</li>
+        <li>梅干しは種を取り、包丁で叩いてペーストにする</li>
+        <li>器にそうめんを盛り、納豆と梅肉をのせる</li>
+        <li>薄めためんつゆをかけ、千切りの大葉と白ごまを散らす</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="recipe-card fade-up">
+    <img class="recipe-card-img" src="img_natto_raisin.png" alt="納豆とレーズン">
+    <div class="recipe-card-body">
+      <span class="recipe-card-number">RECIPE 03</span>
+      <h3 class="recipe-card-name">納豆とレーズンのおつまみ</h3>
+      <p class="recipe-card-desc">
+        意外な組み合わせが驚きのおいしさに。<br>
+        レーズンの甘みと納豆のコクがワインに合います。<br>
+        おもてなしの一皿にもどうぞ。
+      </p>
+      <div class="recipe-card-time">調理時間：約3分</div>
+      <div class="recipe-ingredients">
+        <h4>材料（2人分）</h4>
+        <ul>
+          <li><span>花巻納豆（大粒）</span><span class="amount">1パック</span></li>
+          <li><span>レーズン</span><span class="amount">大さじ2</span></li>
+          <li><span>クリームチーズ</span><span class="amount">30g</span></li>
+          <li><span>くるみ（砕いたもの）</span><span class="amount">大さじ1</span></li>
+          <li><span>はちみつ</span><span class="amount">小さじ1</span></li>
+          <li><span>黒こしょう</span><span class="amount">少々</span></li>
+        </ul>
+      </div>
+      <ol class="recipe-steps">
+        <li>納豆を付属のタレなしで軽くほぐす</li>
+        <li>クリームチーズを一口大にちぎり、レーズン・くるみと混ぜる</li>
+        <li>はちみつを回しかけ、黒こしょうを振って完成</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="recipe-card fade-up">
+    <img class="recipe-card-img" src="img_olive_salt.png" alt="オリーブオイルと岩塩">
+    <div class="recipe-card-body">
+      <span class="recipe-card-number">RECIPE 04</span>
+      <h3 class="recipe-card-name">オリーブオイルと岩塩で</h3>
+      <p class="recipe-card-desc">
+        究極にシンプル。それが一番おいしい。<br>
+        上質なオリーブオイルと岩塩だけで、<br>
+        大粒納豆の豆の旨みが際立ちます。
+      </p>
+      <div class="recipe-card-time">調理時間：約1分</div>
+      <div class="recipe-ingredients">
+        <h4>材料（1人分）</h4>
+        <ul>
+          <li><span>花巻納豆（大粒）</span><span class="amount">1パック</span></li>
+          <li><span>EXVオリーブオイル</span><span class="amount">小さじ2</span></li>
+          <li><span>岩塩</span><span class="amount">ひとつまみ</span></li>
+          <li><span>粗挽き黒こしょう（お好みで）</span><span class="amount">少々</span></li>
+        </ul>
+      </div>
+      <ol class="recipe-steps">
+        <li>納豆を器に出し、付属のタレは使わない</li>
+        <li>オリーブオイルをたっぷり回しかける</li>
+        <li>岩塩を振りかけ、お好みで黒こしょうを挽いて完成</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="point-banner">
+  <div class="pb-title">なぜ「大粒」なのか</div>
+  <p class="pb-sub">
+    大粒だからこそ、豆の旨みと食感がしっかりと残る。<br>
+    サラダやパスタの具材としても存在感があり、<br>
+    新しい食べ方の可能性が広がります。
+  </p>
+</div>
+
+<section class="brand-section">
+  <div class="brand-name">花巻納豆</div>
+  <p class="brand-desc">
+    明治20年（1887年）創業。<br>
+    宮沢賢治ゆかりの地・花巻で、<br>
+    135年以上守り続ける伝統の味。<br>
+    岩手県産大豆を100%使用しています。
+  </p>
+  <div class="brand-badges">
+    <span class="brand-badge">大粒</span>
+    <span class="brand-badge">昔ながら製法</span>
+    <span class="brand-badge">県産大豆100%</span>
+    <span class="brand-badge">明治20年創業</span>
+  </div>
+</section>
+
+<footer class="footer">
+  <strong>有限会社 大内商店</strong>
+  岩手県花巻市
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
