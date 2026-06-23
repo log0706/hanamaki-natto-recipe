@@ -127,7 +127,7 @@ function renderSteps(recipe) {
   updateProgress(recipe);
 }
 function renderMemo(recipe) {
-  el.memoTitle.textContent = `${recipe.title} / ${servings}人分`;
+  el.memoTitle.textContent = `${recipe.title}の買い物リスト / ${servings}人分`;
   el.memoList.innerHTML = recipe.ingredients.map((ingredient, index) => `
     <div class="memo-item"><label><input type="checkbox" data-memo="${index}"><span>${ingredient.name}</span></label><strong>${formatAmount(ingredient, recipe.base)}</strong></div>`).join("");
 }
